@@ -17,6 +17,7 @@ switcher.addEventListener("click", function () {
     $$('.card > ul > p:not(.bold)').forEach((item)=>{
         item.classList.add("ps-item-day")
     })
+    $('.spinner').classList.add('ps-main-day')
   } else {
     //night
     $("body").classList.remove("day");
@@ -30,6 +31,7 @@ switcher.addEventListener("click", function () {
     $$('.card > ul > p:not(.bold)').forEach((item)=>{
         item.classList.remove("ps-item-day")
     })
+    $('.spinner').classList.remove('ps-main-day')
   }
 });
 
