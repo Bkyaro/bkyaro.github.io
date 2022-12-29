@@ -62,7 +62,7 @@ const descriptions = [
   },
 ];
 
-const CARD_TEMPLATE = ({ title, main, side }) => {
+const CARD_TEMPLATE = ({ title, main, side, index }) => {
     let mainps = "";
     let sideps = "";
     main.forEach((item) => {
@@ -73,7 +73,7 @@ const CARD_TEMPLATE = ({ title, main, side }) => {
     });
   
     return `
-      <div class="card">
+      <div class="card" data-index="${index+1}">
           <div class="align">
               <span class="red"></span>
               <span class="yellow"></span>
@@ -89,8 +89,30 @@ const CARD_TEMPLATE = ({ title, main, side }) => {
     `;
   };
 
-descriptions.forEach((data) => {
-  $(".lists").insertAdjacentHTML('beforeend',CARD_TEMPLATE({ ...data}));
+descriptions.forEach((data,index) => {
+  $(".lists").insertAdjacentHTML('beforeend',CARD_TEMPLATE({ ...data, index}));
 });
 
 
+//map changing
+$$('.card').forEach((cards)=>{
+    cards.addEventListener('click',function(e){
+        e.stopPropagation();
+
+        let activeIndex = this.dataset.index
+        $$('img').forEach((maps)=>{
+            maps.classList.add('hide')
+            maps.classList.remove('show')
+        })
+        $(`img[data-id="${activeIndex}"]`).classList.add('show')
+    })
+})
+
+$('.lists').addEventListener('click',function(e){
+    e.stopPropagation();
+    $$('img').forEach((maps)=>{
+        maps.classList.add('hide')
+        maps.classList.remove('show')
+    })
+    $('#source-map').classList.add('show')
+})

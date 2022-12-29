@@ -3,6 +3,14 @@
     padding:0;
 }
 
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
 .day{
     background-color: beige;
 }
@@ -26,7 +34,7 @@
 body{
     width:100vw;
     height:100vh;
-    padding: 8px 32px;
+    /* padding: 8px 32px; */
     transition: all 0.3s;
     box-sizing: border-box;
 }
@@ -38,7 +46,7 @@ body{
     display: inline-block;
     width: 3.5em;
     height: 2em;
-    margin: 16px 0px;
+    margin: 16px;
   }
   
   /* Hide default HTML checkbox */
@@ -88,9 +96,6 @@ body{
   .lists{
     display: flex;
     justify-content: center;
-    /* align-items: center; */
-    /* border: 2px solid red; */
-    height: 100%;
     flex-wrap: wrap;
     gap:16px;
   }
@@ -154,6 +159,17 @@ body{
     margin: 0.5rem;
     color: rgb(218, 244, 237);
     text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+  }
+
+  /* map */
+  .map {
+    height:100%;
+    width:100%;
+    overflow: scroll;
+  }
+
+  .map img{
+    object-fit: contain;
   }
   
   
